@@ -1,0 +1,24 @@
+.fleft {
+    float: left;
+    margin: 20px 50px;
+}
+.fleft2 {
+    float: left;
+    margin: 20px 50px;
+    display:inline ;
+}
+#timer {
+    float: right;
+ 
+    margin: 20px 50px;
+}
+.sameline {
+    overflow: auto;
+}
+.center {
+    text-align: center;
+}
+.color{
+    background-color:black;
+    color: white;
+}

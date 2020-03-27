@@ -1,6 +1,7 @@
+var secondintervalid
 document.getElementById("b1").addEventListener("click", function() {
   alert("Ready! set, Go!");
-  var secondintervalid = setInterval(function() {
+   secondintervalid = setInterval(function() {
     seconds = seconds - 1;
     timeElement.textContent = seconds + " Seconds";
     if (seconds === 0) {
@@ -24,11 +25,49 @@ document.getElementById("b1").addEventListener("click", function() {
 });
 
 var questionsarea = document.getElementById("questions");
-questionsarea.addEventListener("click", function() {
+questionsarea.addEventListener("click", function(event) {
   // whatevr choice is clicked.. compair this to answer
+  var innerText = event.target.innerText;
+  console.log(innerText);
+  if (innerText === questions[currentquestion].Answer) {
+    currentquestion = currentquestion + 1;
+    var pTag = document.createElement("p");
+    pTag.innerText = "Correct";
+    questionsarea.appendChild(pTag);
+  } else {
+    currentquestion = currentquestion + 1;
+    seconds = seconds - 5;
+    var pTag = document.createElement("p");
+    pTag.innerText = "incorrect";
+    questionsarea.appendChild(pTag);
+  }
+  
+  var timeout = setTimeout(function(){
+    if (currentquestion > questions.length -1){
+      clearInterval(secondintervalid)
+      clearTimeout(timeout)
+      questionsarea.innerHTML = ("")
+      document.getElementById("Fscore").setAttribute("style", "display:block")
+      document.getElementById("score").innerText = seconds
+
+      return
+    }
+    questionsarea.innerHTML = ("")
+    var question = document.createElement("h1");
+    question.innerText = questions[currentquestion].question;
+    questionsarea.appendChild(question);
+  
+    for (var i = 0; i < questions[currentquestion].choices.length; i++) {
+      var button = document.createElement("button");
+      button.innerText = questions[currentquestion].choices[i];
+      questionsarea.appendChild(button);
+    }
+   
+  }, 700)
+  
 });
 var timeElement = document.querySelector("#timer");
-var seconds = 4;
+var seconds = 60;
 timeElement.textContent = seconds + "Seconds";
 currentquestion = 0;
 var questions = [
@@ -63,3 +102,7 @@ var questions = [
     Answer: "Css & JavaScript"
   }
 ];
+document.getElementById("score").addEventListener("click", function() {
+  localStorage.setItem("username", "John");
+
+})

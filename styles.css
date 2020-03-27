@@ -1,19 +1,18 @@
 .fleft {
     float: left;
-    margin: 20px 50px;
 }
 .fleft2 {
-    float: left;
-    margin: 20px 50px;
-    display:inline ;
+    margin-top: 10px;
+    padding-left: 50px;
 }
 #timer {
     float: right;
- 
-    margin: 20px 50px;
 }
 .sameline {
     overflow: auto;
+    margin-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 .center {
     text-align: center;
@@ -21,4 +20,12 @@
 .color{
     background-color:black;
     color: white;
+}
+#mt{
+    margin-top: 60px;
+}
+#Fscore{
+    display: none;
+    margin-top: 15px;
+    margin-left: 60px;
 }

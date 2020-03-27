@@ -7,7 +7,7 @@ if (topScores === null){
 var secondintervalid
 var seconds = 60;
 document.getElementById("b1").addEventListener("click", function() {
-  alert("Ready! set, Go!");
+  // alert("Ready! set, Go!");
    secondintervalid = setInterval(function() {
     seconds = seconds - 1;
     timeElement.textContent = seconds + " Seconds";
@@ -70,11 +70,13 @@ questionsarea.addEventListener("click", function(event) {
       questionsarea.appendChild(button);
     }
    
-  }, 700)
+  }, 500)
   
 });
 var timeElement = document.querySelector("#timer");
-var seconds = 60;
+// check bottom
+var seconds = localStorage.getItem("topScores")
+//  var seconds = 60;
 timeElement.textContent = seconds + "Seconds";
 currentquestion = 0;
 var questions = [
@@ -99,11 +101,11 @@ var questions = [
     Answer: "6"
   },
   {
-    question: "What is Bootstrap?",
+    question: "What is Bootstrap Used for?",
     choices: [
       "Css libary",
       "Html libary",
-      "Css tags",
+      "Css & JavaScript",
       "So your Shoes wont feel loose"
     ],
     Answer: "Css & JavaScript"

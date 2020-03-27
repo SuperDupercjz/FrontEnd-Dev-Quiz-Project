@@ -75,8 +75,8 @@ questionsarea.addEventListener("click", function(event) {
 });
 var timeElement = document.querySelector("#timer");
 // check bottom
-var seconds = localStorage.getItem("topScores")
-//  var seconds = 60;
+var topScores = JSON.parse(localStorage.getItem("topScores"));
+var seconds = 60;
 timeElement.textContent = seconds + "Seconds";
 currentquestion = 0;
 var questions = [

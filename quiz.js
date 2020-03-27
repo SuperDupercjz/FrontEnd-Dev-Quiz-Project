@@ -1,4 +1,11 @@
+topScores = localStorage.getItem("topScores");
+topScores = JSON.parse(topScores);
+if (topScores === null){
+  var topScores = [];
+
+}
 var secondintervalid
+var seconds = 60;
 document.getElementById("b1").addEventListener("click", function() {
   alert("Ready! set, Go!");
    secondintervalid = setInterval(function() {
@@ -102,7 +109,15 @@ var questions = [
     Answer: "Css & JavaScript"
   }
 ];
-document.getElementById("score").addEventListener("click", function() {
-  localStorage.setItem("username", "John");
-
-})
+  document.getElementById("scorebutton").addEventListener("click", function (event) { 
+     event.preventDefault();  
+     var name = document.getElementById("Name").value 
+     var userScore = {   
+     name: name,  
+      score: seconds 
+        
+        };
+        topScores.push(userScore); 
+        console.log(topScores)
+         var json = JSON.stringify(topScores); 
+         localStorage.setItem("topScores", json);});

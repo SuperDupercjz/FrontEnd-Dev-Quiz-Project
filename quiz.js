@@ -38,14 +38,14 @@ questionsarea.addEventListener("click", function(event) {
   console.log(innerText);
   if (innerText === questions[currentquestion].Answer) {
     currentquestion = currentquestion + 1;
-    var pTag = document.createElement("p");
-    pTag.innerText = "Correct";
+    var pTag = document.createElement("h3");
+    pTag.innerText = "CORRECT";
     questionsarea.appendChild(pTag);
   } else {
     currentquestion = currentquestion + 1;
     seconds = seconds - 5;
-    var pTag = document.createElement("p");
-    pTag.innerText = "incorrect";
+    var pTag = document.createElement("h3");
+    pTag.innerText = "INCORRECT";
     questionsarea.appendChild(pTag);
   }
   
@@ -70,12 +70,13 @@ questionsarea.addEventListener("click", function(event) {
       questionsarea.appendChild(button);
     }
    
-  }, 500)
+  }, 400)
   
 });
 var timeElement = document.querySelector("#timer");
-// check bottom
-var topScores = JSON.parse(localStorage.getItem("topScores"));
+
+var topScores = JSON.parse(localStorage.getItem("topScores")) || [];
+
 var seconds = 60;
 timeElement.textContent = seconds + "Seconds";
 currentquestion = 0;
@@ -113,7 +114,7 @@ var questions = [
 ];
   document.getElementById("scorebutton").addEventListener("click", function (event) { 
      event.preventDefault();  
-     var name = document.getElementById("Name").value 
+     var name = document.getElementById("name").value 
      var userScore = {   
      name: name,  
       score: seconds 
@@ -122,4 +123,4 @@ var questions = [
         topScores.push(userScore); 
         console.log(topScores)
          var json = JSON.stringify(topScores); 
-         localStorage.setItem("topScores", json);});
+         localStorage.setItem("topScores", json);})

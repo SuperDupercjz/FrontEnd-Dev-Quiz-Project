@@ -6,10 +6,10 @@ topScores.sort(function(scoreA, scoreB) {
 });
 
 var scoreContainer = document.getElementById("topScors");
-for (var i = 0; i < 3; i++) {
+for (var i = 0; i < 5; i++) {
     // create the <li> for a score
     var li = document.createElement("li")
-    li.innerText = topScores[i].name + ": " + topScores[i].score;
+    li.innerText = topScores[i].name + ": ( " + topScores[i].score + " ) ";
     scoreContainer.appendChild(li)
 }
 

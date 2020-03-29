@@ -1,7 +1,7 @@
 .fleft {
     float: left;
 }
-.fleft2 {
+#fleft2 {
     margin-top: 10px;
     padding-left: 50px;
 }
@@ -28,4 +28,19 @@
     display: none;
     margin-top: 15px;
     margin-left: 60px;
+}
+.con {
+  
+    font-size: 30px;
+}
+.bq{
+    margin-left: 50px;
+    margin-top: 10px;
+}
+#questions{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.view{
+    font-size: 25px;
 }
